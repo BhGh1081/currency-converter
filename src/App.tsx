@@ -15,8 +15,8 @@ export default function App() {
 
   const [conversionType, setConversionType] = useState<ConversionType>('USD_TO_IRR');
 
-  const result = converter(amount, rate, conversionType);
-
+  const result = (amount !== "" && rate !== "") ?
+    converter(amount, rate, conversionType) : 0
 
 
 
@@ -57,17 +57,14 @@ export default function App() {
             className="h-10 border border-solid rounded-md p-4 placeholder:text-sm" />
         </section>
 
-        <section className="space-y-2 text-center">
-          {amount !== "" && rate !== "" && !result &&
-            <p className="text-red-400 text-[14px]">Please enter valid number</p>
-          }
-          <div className="w-full flex justify-between items-center">
+        <section className="w-full flex justify-between items-center">
             <p id="result" className="text-2xl font-semibold">
-              {result === null ? 0 : formatResult(result, conversionType)}
+              {result === null ?
+                <span className="text-red-400 text-[14px]">Please enter valid number</span> :
+                formatResult(result, conversionType)
+              }
             </p>
             <span className="text-2xl">{conversionType === 'USD_TO_IRR' ? 'Rials' : '$'}</span>
-          </div>
-
         </section>
       </div>
     </main>

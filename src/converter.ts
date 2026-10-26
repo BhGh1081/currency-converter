@@ -6,7 +6,7 @@ export function converter(amount: string, rate: string, conversionType: Conversi
     const amountNum = Number(amount);
     const rateNum = Number(rate);
 
-    if (amount === "" || rate === "" || amountNum <= 0 || rateNum <= 0) return null
+    if (amountNum <= 0 || rateNum <= 0) return null;
 
     return conversionType === "USD_TO_IRR" ? amountNum * rateNum : amountNum / rateNum
 }
