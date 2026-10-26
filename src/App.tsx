@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { converter, type ConversionType } from "./converter";
+import { converter, type ConversionType, formatResult } from "./converter";
 
 
 const radio: { value: ConversionType, label: string }[] = [
@@ -63,7 +63,7 @@ export default function App() {
           }
           <div className="w-full flex justify-between items-center">
             <p id="result" className="text-2xl font-semibold">
-              {result ?? 0}
+              {result === null ? 0 : formatResult(result, conversionType)}
             </p>
             <span className="text-2xl">{conversionType === 'USD_TO_IRR' ? 'Rials' : '$'}</span>
           </div>

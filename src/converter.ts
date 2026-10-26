@@ -10,3 +10,11 @@ export function converter(amount: string, rate: string, conversionType: Conversi
 
     return conversionType === "USD_TO_IRR" ? amountNum * rateNum : amountNum / rateNum
 }
+
+
+export function formatResult(value: number , conversionType: string) :  string | number {
+
+    return new Intl.NumberFormat('en-US', {
+        maximumFractionDigits: conversionType === 'USD_TO_IRR' ? 0 : 2
+    }).format(value)
+}
