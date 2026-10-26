@@ -21,19 +21,20 @@ export default function App() {
 
 
   return (
-    <main className="w-full h-dvh flex justify-center items-center">
-      <div className="flex flex-col gap-10  p-15 rounded-lg shadow-2xl shadow-white/20">
-        <h1 className="text-3xl self-center">Currency Converter</h1>
+    <main className="w-full h-dvh justify-items-center content-center p-4">
+      <div className="sm:w-fit w-full flex flex-col gap-10 md:p-15 p-5 rounded-lg shadow-2xl shadow-white/20">
+        <h1 className="text-2xl md:text-3xl self-center whitespace-nowrap">Currency Converter</h1>
 
-        <section className="flex gap-10">
+        <section className="flex items-center md:items-start md:gap-10 gap-3">
           {radio.map(item =>
-            <label key={item.value}>
+            <label key={item.value} className="max-md:border max-md:p-2 max-md:rounded-md max-md:w-full max-md:has-checked:bg-blue-900 max-md:text-center">
               <input
                 type="radio"
                 name="conversionType"
                 value={item.value}
                 checked={conversionType === item.value}
                 onChange={() => setConversionType(item.value)}
+                className="max-md:sr-only"
               /> {item.label}
             </label>
           )}
@@ -58,13 +59,13 @@ export default function App() {
         </section>
 
         <section className="w-full flex justify-between items-center">
-            <p id="result" className="text-2xl font-semibold">
-              {result === null ?
-                <span className="text-red-400 text-[14px]">Please enter valid number</span> :
-                formatResult(result, conversionType)
-              }
-            </p>
-            <span className="text-2xl">{conversionType === 'USD_TO_IRR' ? 'Rials' : '$'}</span>
+          <p id="result" className="text-2xl font-semibold">
+            {result === null ?
+              <span className="text-red-400 text-[14px]">Please enter valid number</span> :
+              formatResult(result, conversionType)
+            }
+          </p>
+          <span className="text-2xl">{conversionType === 'USD_TO_IRR' ? 'Rials' : '$'}</span>
         </section>
       </div>
     </main>
