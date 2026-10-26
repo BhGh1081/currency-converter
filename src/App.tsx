@@ -21,7 +21,7 @@ export default function App() {
 
 
   return (
-    <main className="w-full h-dvh bg-black flex justify-center items-center">
+    <main className="w-full h-dvh flex justify-center items-center">
       <div className="flex flex-col gap-10  p-15 rounded-lg shadow-2xl shadow-white/20">
         <h1 className="text-3xl self-center">Currency Converter</h1>
 
