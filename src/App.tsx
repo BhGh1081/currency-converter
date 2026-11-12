@@ -84,7 +84,17 @@ export default function App() {
               className="flex-1 h-15 focus:outline-none" />
             <div className="w-[30%] content-center text-end"><p>Dollars</p></div>
           </div>
-
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-blue-500 w-fit place-self-end hover:cursor-pointer"
+            onClick={() => setConversionType(prev => prev === "dollars" ? 'rials' : 'dollars')}>
+            <path d="M16 13V11.5H10V9.5H16V8L19 10.5L16 13Z" fill="currentColor" />
+            <path d="M8 17V15.5H14V13.5H8V12L5 14.5L8 17Z" fill="currentColor" />
+          </svg>
         </div>
 
 
