@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 export default function App() {
 
-  const { data, isPending, isError} = useRate();
+  const { data, isPending, isError, refetch } = useRate();
 
   const [manualRate, setManualRate] = useState('')
 
@@ -40,8 +40,8 @@ export default function App() {
         <section className="space-y-2">
         <div className="flex flex-col gap-3 text-center text-lg">
           <p> Rate of Dollar in Rial</p>
-          <p
-            className={clsx('text-sm', isError && 'text-red-400')}>{isPending ? 'Loading...' : isError && manualRate === '' ? 'Could not load the rate. Please enter it' : data}</p>
+          <p onClick={() => refetch()}
+            className={clsx('text-sm cursor-pointer hover:text-red-800', isError && 'text-red-400')}>{isPending ? 'Loading...' : isError && manualRate === '' ? 'Could not load the rate. Please enter it' : data}</p>
         </div>
         {isError &&
           <NumericFormat
